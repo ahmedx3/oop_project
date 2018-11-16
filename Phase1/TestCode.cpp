@@ -341,15 +341,15 @@ int main()
 			break;
 
 		case STATUS:
-			pOut->PrintMessage("Action: a click on the Status Bar, Click anywhere");
+			pOut->PrintMessage("Action: A click on the Status Bar, Click anywhere");
 			break;
 
 		case DRAWING_AREA:
-			pOut->PrintMessage("Action: a click on the Drawing Area, Click anywhere");
+			pOut->PrintMessage("Action: A click on the Drawing Area, Click anywhere");
 			break;
 
 		case EMPTY:
-			pOut->PrintMessage("Action: a click on empty area in the Design Tool Bar, Click anywhere");
+			pOut->PrintMessage("Action: A click on empty area in the Design Tool Bar, Click anywhere");
 			break;
 
 		case SELECTBYFIGURE:
@@ -370,6 +370,13 @@ int main()
 			pOut->CreatePlayToolBar();
 			break;
 
+		case MUTE:
+			pOut->PrintMessage("Action: Sound is Muted, Click anywhere");
+			break;
+
+		case UNMUTE:
+			pOut->PrintMessage("Action: Sound is Unmuted, Click anywhere");
+			break;
 
 		case EXIT:
 			break;

@@ -37,7 +37,10 @@ enum ActionType //The actions supported (you can add more if needed)
 	SELECTBYFIGURE,	//select by type in play mode
 
 	TO_DRAW,		//Switch interface to Draw mode
-	TO_PLAY			//Switch interface to Play mode
+	TO_PLAY,		//Switch interface to Play mode
+
+	MUTE,
+	UNMUTE
 
 	///TODO: Add more action types (if needed)
 };

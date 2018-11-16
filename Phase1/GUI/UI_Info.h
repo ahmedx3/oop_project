@@ -38,6 +38,8 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_SAVETYPE,				//save by type item in menu
 	ITM_LOAD,					//load item in menu
 	ITM_RESIZE,					//Resize item in menu
+	ITM_UNMUTE,					//unmute voice
+	ITM_MUTE,					//mute voice
 	ITM_PLAYMODE,				//Playmode item in menu
 	//TODO: Add more items names here
 

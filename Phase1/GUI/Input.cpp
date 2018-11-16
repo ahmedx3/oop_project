@@ -73,6 +73,8 @@ ActionType Input::GetUserAction() const
 			case ITM_LOAD: return LOAD;
 			case ITM_RESIZE: return RESIZE;
 			case ITM_PLAYMODE: return TO_PLAY;
+			case ITM_UNMUTE: return UNMUTE;
+			case ITM_MUTE: return MUTE;
 			case ITM_EXIT: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar

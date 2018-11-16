@@ -12,7 +12,7 @@ Output::Output()
 	UI.wy =5;
 	UI.StatusBarHeight = 50;
 	UI.ToolBarHeight = 50;
-	UI.MenuItemWidth = 65;
+	UI.MenuItemWidth = 60;
 	
 	UI.DrawColor = BLUE;	//Drawing color
 	UI.FillColor = GREEN;	//Filling color
@@ -108,6 +108,8 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_RESIZE] = "images\\MenuItems\\Menu_Resize.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Menu_Load.jpg";
 	MenuItemImages[ITM_PLAYMODE] = "images\\MenuItems\\Menu_Playmode.jpg";
+	MenuItemImages[ITM_UNMUTE] = "images\\MenuItems\\Menu_Unmute.jpg";
+	MenuItemImages[ITM_MUTE] = "images\\MenuItems\\Menu_Mute.jpg";
 
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
@@ -202,7 +204,7 @@ void Output::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) co
 
 	
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
-	
+
 }
 void Output:: DRAWTri(Point P1, Point P2, Point p3, GfxInfo RectGfxInfo, bool selected) const{
 	color DrawingClr;
