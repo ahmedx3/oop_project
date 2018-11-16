@@ -91,20 +91,20 @@ int main()
 
 	pOut->PrintMessage("Drawing a line,   Highlighted and non highlighted,  Click to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
-	pOut->PrintMessage("Drawing a line  ==> non highlighted,  Click 2 points ");
+	pOut->PrintMessage("Drawing a line ==> non highlighted,  Click two points ");
 	pIn->GetPointClicked(P1.x, P1.y);
 	pIn->GetPointClicked(P2.x, P2.y);
 	gfxInfo.BorderWdth = 5;
 	gfxInfo.DrawClr = BLACK;	//any color for border
 	gfxInfo.isFilled = false;	//Figure is NOT filled
 	pOut->DrawLine(P1, P2, gfxInfo, false);
-	pOut->PrintMessage("Drawing a line ==> highlighted,  Click anywhere to highlight");
+	pOut->PrintMessage("Drawing a line ==> Highlighted,  Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 
 	pOut->DrawLine(P1, P2, gfxInfo, true); //highlighted
 	//pOut->PrintMessage("clear , Click anywhere to continue");
 
-	pOut->PrintMessage("Drawing a line test ==> OK,  Click  to continue");
+	pOut->PrintMessage("Drawing a line test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -116,12 +116,7 @@ int main()
 
 	///TODO: Add code to draw Triangle in all possible states
 
-	pOut->PrintMessage("Drawing a Triangle  ==> non filled non highlighted,  Click anywhere to continue");
-	pIn->GetPointClicked(x, y);	//Wait for any click
-	gfxInfo.isFilled = false;
-
-
-	pOut->PrintMessage("Drawing a Triangle,   Click 3 points");
+	pOut->PrintMessage("Drawing a Triangle ==> non-filled,  Click three points");
 	gfxInfo.BorderWdth = 5;
 	gfxInfo.DrawClr = BLACK;	//any color for border
 	pIn->GetPointClicked(P1.x, P1.y);
@@ -131,13 +126,13 @@ int main()
 
 
 	//highlighted
-	pOut->PrintMessage("Drawing a  Triangle ==> highlighted,  Click anywhere to highlight");
+	pOut->PrintMessage("Drawing a Triangle ==> Highlighted non-filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->DRAWTri(P1, P2, P3, gfxInfo, true); // highlighted
 
 
 	//filled non highlighted
-	pOut->PrintMessage("Drawing a  Triangle ==> filled ,   Click 3 points");
+	pOut->PrintMessage("Drawing a Triangle ==> filled,  Click three points");
 	gfxInfo.BorderWdth = 5;
 	gfxInfo.DrawClr = BLACK;	//any color for border
 	pIn->GetPointClicked(P1.x, P1.y);
@@ -146,40 +141,42 @@ int main()
 	gfxInfo.isFilled = true;
 	pOut->DRAWTri(P1, P2, P3, gfxInfo, false); // filled
 	// filled highlighted
-	pOut->PrintMessage("Drawing a  Triangle ==> filled highlighted,   Click to highlight");
+	pOut->PrintMessage("Drawing a Triangle ==> Highlighted filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);
 	pOut->DRAWTri(P1, P2, P3, gfxInfo, true); // filled
-	pOut->PrintMessage("drawing a triangle test => ok, click anywhere");
+	pOut->PrintMessage("Drawing a Triangle test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	/// 2.4- Rhombus Test ///
 	/// =================== 
 
+	pOut->PrintMessage("Drawing a Rhombus, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
+	pIn->GetPointClicked(x, y);	//Wait for any click
 	///TODO: Add code to draw Triangle in all possible states
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLACK;	//any color for border
 	gfxInfo.FillClr = RED;//any color for filling
 	gfxInfo.isFilled = false;//Figure is filled
-	//pOut->PrintMessage("Drawing a Triangle Test ==> OK,  Click anywhere to continue");
-	//pIn->GetPointClicked(x,y);
-	pOut->PrintMessage("Drawing a rohmbus ==>  non-filled,");
+
+
+	pOut->PrintMessage("Drawing a Rhombus ==> non-filled,  Click one point");
 	pIn->GetPointClicked(P1.x, P1.y);	//Wait for any click
 	pOut->Draw_poly(P1, gfxInfo, false);
-	pOut->PrintMessage("Drawing a rohmbus ==> Click to Highlight");
+	pOut->PrintMessage("Drawing a Rhombus ==> Highlighted non-filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 
 	pOut->Draw_poly(P1, gfxInfo, true);
-	pOut->PrintMessage("Drawing a rohmbus ==> filled,  Click one points");
+	pOut->PrintMessage("Drawing a Rhombus ==> filled,  Click one point");
 	pIn->GetPointClicked(P1.x, P1.y);
-	//pIn->GetPointClicked(P2.x, P2.y);
-	//pIn->GetPointClicked(x,y);
+
+
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = LIGHTBLUE;	//any color for border
 	gfxInfo.FillClr = BLUE;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
 	pOut->Draw_poly(P1, gfxInfo, false);
-	pOut->PrintMessage("Drawing a rohmbus ==> Highlighted filled, Click to Highlight");
+	pOut->PrintMessage("Drawing a Rhombus ==> Highlighted filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->Draw_poly(P1, gfxInfo, true);
 	///TODO: Add code to draw Rhombus in all possible states
@@ -189,36 +186,36 @@ int main()
 
 	/// 2.5- Elipse Test ///
 	/// =================== 
-	pOut->PrintMessage("Drawing an Ellipse, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
+	pOut->PrintMessage("Drawing an Elipse, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	///TODO: Add code to draw Ellipse in all possible states
-	//Point P1, P2, P3;
-	pOut->PrintMessage("Drawing an elipse ==> non-filled,  one points");
+
+	pOut->PrintMessage("Drawing an Elipse ==> non-filled,  Click one point");
 	pIn->GetPointClicked(P1.x, P1.y);
 	gfxInfo.BorderWdth = 5;
 	gfxInfo.DrawClr = BLACK;	//any color for border
 	gfxInfo.isFilled = false;	//Figure is NOT filled
 	pOut->Drawelipse(P1, gfxInfo, false);
 	///TODO: Add code to draw Triangle in all possible states 
-	//pOut->PrintMessage("Drawing a Triangle Test ==> OK,  Click anywhere to continue");
-	//pIn->GetPointClicked(x,y);
-	pOut->PrintMessage("Drawing an elipse ==> Highlighted non-filled, Click to Highlight");
+
+
+	pOut->PrintMessage("Drawing an Elipse ==> Highlighted non-filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->Drawelipse(P1, gfxInfo, true);
-	pOut->PrintMessage("Drawing an elipse ==> filled,  Click one points");
+	pOut->PrintMessage("Drawing an Elipse ==> filled,  Click one point");
 	pIn->GetPointClicked(P1.x, P1.y);
-	//pIn->GetPointClicked(P2.x, P2.y);
-	//pIn->GetPointClicked(x,y);
+
+
 	gfxInfo.BorderWdth = 6;
 	gfxInfo.DrawClr = BLACK;	//any color for border
 	gfxInfo.FillClr = RED;//any color for filling
 	gfxInfo.isFilled = true;//Figure is filled
 	pOut->Drawelipse(P1, gfxInfo, false);
-	pOut->PrintMessage("Drawing an elipse ==> Highlighted filled, Click to Highlight");
+	pOut->PrintMessage("Drawing an Elipse ==> Highlighted filled, Click to Highlight");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->Drawelipse(P1, gfxInfo, true);
 	///TODO: Add code to draw Rhombus in all possible states
-	pOut->PrintMessage("Drawing an elipse Test ==> OK,  Click anywhere to continue");
+	pOut->PrintMessage("Drawing an Elipse Test ==> OK,  Click anywhere to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
 	pOut->ClearDrawArea();
 
