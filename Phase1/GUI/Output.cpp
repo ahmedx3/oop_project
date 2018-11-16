@@ -135,6 +135,7 @@ void Output::CreatePlayToolBar() const
 	PlayItemImages[ITM_SELECTBYCOLOR] = "images\\MenuItems\\Menu_Selectbycolor.jpg";
 	PlayItemImages[ITM_SELECTBYFIGURE] = "images\\MenuItems\\Menu_Selectbyfigure.jpg";
 	PlayItemImages[ITM_DRAWMODE] = "images\\MenuItems\\Menu_Drawmode.jpg";
+	PlayItemImages[ITM_EXIT2] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//Draw menu item one image at a time
 	for (int i = 0; i < PLAY_ITM_COUNT; i++)

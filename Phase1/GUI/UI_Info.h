@@ -54,7 +54,7 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	ITM_SELECTBYCOLOR,			//select item by color
 	ITM_SELECTBYFIGURE,			//select item by figure
 	ITM_DRAWMODE,				//switch to draw mode
-
+	ITM_EXIT2,					//exit in playmode
 
 
 	//TODO: Add more items names here

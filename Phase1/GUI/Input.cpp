@@ -97,6 +97,7 @@ ActionType Input::GetUserAction() const
 		case ITM_SELECTBYFIGURE: return SELECTBYFIGURE;
 		case ITM_SELECTBYCOLOR: return SELECTBYCOLOR;
 		case ITM_DRAWMODE: return TO_DRAW;
+		case ITM_EXIT2:return EXIT;
 
 		}
 		///TODO:
