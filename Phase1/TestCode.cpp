@@ -1,7 +1,9 @@
 #include "GUI\Input.h"
 #include "GUI\Output.h"
+#include <iostream>
 
 //This is a test code to test the Input and Output classes
+
 
 int main()
 {
@@ -24,6 +26,7 @@ int main()
 
 	pOut->PrintMessage("TEST1: Drawing Tool bar and Status bar, Click anywhere to continue");
 	pIn->GetPointClicked(x, y);	//Wait for any click
+	
 
 
 	///////////////////////////////////////////////////////////////////////////////////

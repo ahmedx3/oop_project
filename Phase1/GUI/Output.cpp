@@ -179,13 +179,73 @@ color Output::getCrntFillColor() const	//get current filling color
 	
 int Output::getCrntPenWidth() const		//get current pen width
 {	return UI.PenWidth;	}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//check for point 
 
+bool Output::isChecked(Point p) const {
+	int y = p.y;
+	if (y > 50) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 //======================================================================================//
 //								Figures Drawing Functions								//
 //======================================================================================//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void Output::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) const
+void Output::DrawRect(Point &P1, Point &P2, GfxInfo RectGfxInfo, bool selected) const
 {
+	
+	int x, y;
+	color DrawingClr;
+	if(selected)	
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else			
+		DrawingClr = RectGfxInfo.DrawClr;
+	
+	pWind->SetPen(DrawingClr,1);
+	drawstyle style;
+	if (RectGfxInfo.isFilled)	
+	{
+		style = FILLED;		
+		pWind->SetBrush(RectGfxInfo.FillClr);
+	}
+	else	
+		style = FRAME;
+	if (selected == true) {
+		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	}
+	else {
+		if (isChecked(P1) && isChecked(P2)) {
+			pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+		}
+		else {
+
+			PrintMessage(" click on specified area for drawing , click anywhere to continue ");
+			Input *pIn = CreateInput();
+			pIn->GetPointClicked(x, y);
+			PrintMessage("Drawing a Rectangle   Click two points");
+			pIn->GetPointClicked(P1.x, P1.y);
+			pIn->GetPointClicked(P2.x, P2.y);
+			DrawRect(P1,P2, RectGfxInfo, false);
+		}
+
+
+	}
+	
+		
+
+	
+	
+
+}
+void Output:: DRAWTri(Point &P1, Point &P2, Point &p3, GfxInfo RectGfxInfo, bool selected) const{
+	int x, y;
 	color DrawingClr;
 	if(selected)	
 		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
@@ -202,29 +262,29 @@ void Output::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) co
 	else	
 		style = FRAME;
 
-	
-	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
-
-}
-void Output:: DRAWTri(Point P1, Point P2, Point p3, GfxInfo RectGfxInfo, bool selected) const{
-	color DrawingClr;
-	if(selected)	
-		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
-	else			
-		DrawingClr = RectGfxInfo.DrawClr;
-	
-	pWind->SetPen(DrawingClr,1);
-	drawstyle style;
-	if (RectGfxInfo.isFilled)	
-	{
-		style = FILLED;		
-		pWind->SetBrush(RectGfxInfo.FillClr);
+	if (selected == true) {
+		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, p3.x, p3.y, style);
 	}
-	else	
-		style = FRAME;
-	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, p3.x , p3.y, style);
+	else {
+		if (isChecked(P1) && isChecked(P2) && isChecked(p3)) {
+			pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, p3.x, p3.y, style);
+		}
+		else {
+			PrintMessage(" click on specified area for drawing , click anywhere to continue ");
+			Input *pIn = CreateInput();
+			pIn->GetPointClicked(x, y);
+			PrintMessage("Drawing a triangle   Click three points");
+			pIn->GetPointClicked(P1.x, P1.y);
+			pIn->GetPointClicked(P2.x, P2.y);
+			pIn->GetPointClicked(p3.x, p3.y);
+			DRAWTri(P1, P2, p3, RectGfxInfo, false);
+
+		}
+	}
+	
 }
-void Output:: Drawelipse(Point P1, GfxInfo RectGfxInfo, bool selected) const {
+void Output:: Drawelipse(Point &P1, GfxInfo RectGfxInfo, bool selected) const {
+	int x, y;
 color DrawingClr;
 	if(selected)	
 		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
@@ -240,9 +300,28 @@ color DrawingClr;
 	}
 	else	
 		style = FRAME;
-	pWind->DrawCircle(P1.x, P1.y, 100,  style);
+	if (selected == true) {
+		pWind->DrawCircle(P1.x, P1.y, 100, style);
+	}
+	else {
+
+
+		if (isChecked(P1) && P1.y > 100) {
+			pWind->DrawCircle(P1.x, P1.y, 100, style);
+		}
+		else {
+			PrintMessage(" click on specified area for drawing , click anywhere to continue ");
+			Input *pIn = CreateInput();
+			pIn->GetPointClicked(x, y);
+			PrintMessage("Drawing an Eclipse   Click one points");
+			pIn->GetPointClicked(P1.x, P1.y);
+			Drawelipse(P1, RectGfxInfo, false);
+
+		}
+	}
 }
-void Output:: Draw_poly(Point P1, GfxInfo RectGfxInfo, bool selected) const {
+void Output:: Draw_poly(Point &P1, GfxInfo RectGfxInfo, bool selected) const {
+	int x, y;
 int  *xp = new int  [4]; 
 int  *yp = new int  [4]; 
 yp[0] = P1.y +100; 
@@ -268,11 +347,31 @@ color DrawingClr;
 	}
 	else	
 		style = FRAME;
-	pWind->DrawPolygon (xp, yp,4, style);
+	if (selected == true) {
+		pWind->DrawPolygon(xp, yp, 4, style);
+	}
+	else {
+
+
+		if (isChecked(P1) && yp[2] > 50 ) {
+			pWind->DrawPolygon(xp, yp, 4, style);
+		}
+		else {
+			PrintMessage(" click on specified area for drawing , click anywhere to continue ");
+			Input *pIn = CreateInput();
+			pIn->GetPointClicked(x, y);
+			PrintMessage("Drawing a rohmbus   Click one point");
+			pIn->GetPointClicked(P1.x, P1.y);
+			Draw_poly(P1, RectGfxInfo, false);
+
+		}
+	}
+	
 }
 	
-void Output::DrawLine(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) const
+void Output::DrawLine(Point &P1, Point &P2, GfxInfo RectGfxInfo, bool selected) const
 {
+	int x, y;
 	color DrawingClr;
 	if (selected)
 		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
@@ -288,11 +387,29 @@ void Output::DrawLine(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) co
 	}
 	else
 		style = FRAME;
+	if (selected == true) {
+		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+	}
+	else {
 
 
-	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+		if (isChecked(P1) && isChecked(P2)) {
+			pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+		}
+		else {
+			PrintMessage(" click on specified area for drawing , click anywhere to continue ");
+			Input *pIn = CreateInput();
+			pIn->GetPointClicked(x, y);
+			PrintMessage("Drawing a Line   Click two points");
+			pIn->GetPointClicked(P1.x, P1.y);
+			pIn->GetPointClicked(P2.x, P2.y);
+			DrawLine(P1, P2, RectGfxInfo, false);
 
+		}
+
+	}
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()
