@@ -312,7 +312,7 @@ color DrawingClr;
 			pWind->DrawCircle(P1.x, P1.y, 100, style);
 		}
 		else {
-			PrintMessage(" click on specified area for drawing , click anywhere to continue ");
+			PrintMessage("Click on specified area for drawing and Leave enough space from toolbar , click anywhere to continue ");
 			Input *pIn = CreateInput();
 			pIn->GetPointClicked(x, y);
 			PrintMessage("Drawing an Eclipse   Click one points");
@@ -359,7 +359,7 @@ color DrawingClr;
 			pWind->DrawPolygon(xp, yp, 4, style);
 		}
 		else {
-			PrintMessage(" click on specified area for drawing , click anywhere to continue ");
+			PrintMessage("Click on specified area for drawing and Leave enough space from toolbar , click anywhere to continue ");
 			Input *pIn = CreateInput();
 			pIn->GetPointClicked(x, y);
 			PrintMessage("Drawing a rohmbus   Click one point");

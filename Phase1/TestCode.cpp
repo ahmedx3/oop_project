@@ -280,7 +280,6 @@ int main()
 
 		case DRAW_BLACK:
 			pOut->PrintMessage("Action: Draw with a Black color , Click anywhere");
-			pOut->CreateColorBar();
 			break;
 
 		case DRAW_WHITE:
