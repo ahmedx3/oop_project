@@ -26,6 +26,8 @@ enum ActionType //The actions supported (you can add more if needed)
 	SAVE,			//Save the whole graph to a file
 	SAVE_BY_TYPE,	//Save the all the figures that have a specific type
 	RESIZE,			//resize figure
+	PUSH_FRONT,		//make figure at top of other figures
+	PUSH_BACK,		//make figure at the back of other figures
 	LOAD,			//Load a graph from a file
 	EXIT,			//Exit the application
 

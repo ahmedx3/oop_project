@@ -40,6 +40,8 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_RESIZE,					//Resize item in menu
 	ITM_UNMUTE,					//unmute voice
 	ITM_MUTE,					//mute voice
+	ITM_PUSHFRONT,				//Push front icon
+	ITM_PUSHBACK,				//push back icon
 	ITM_PLAYMODE,				//Playmode item in menu
 	//TODO: Add more items names here
 

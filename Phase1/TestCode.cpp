@@ -280,6 +280,7 @@ int main()
 
 		case DRAW_BLACK:
 			pOut->PrintMessage("Action: Draw with a Black color , Click anywhere");
+			pOut->CreateColorBar();
 			break;
 
 		case DRAW_WHITE:
@@ -326,6 +327,13 @@ int main()
 			pOut->PrintMessage("Action: RESIZE A Figure , Click anywhere");
 			break;
 
+		case PUSH_FRONT:
+			pOut->PrintMessage("Action: Make the figure at the top of other figures , Click anywhere");
+			break;
+
+		case PUSH_BACK:
+			pOut->PrintMessage("Action: Make the figure at the back of other figures , Click anywhere");
+			break;
 
 		case DRAW_RED:
 			pOut->PrintMessage("Action: Draw with A Red color , Click anywhere");

@@ -6,13 +6,13 @@ Output::Output()
 	//Initialize user interface parameters
 	UI.InterfaceMode = MODE_DRAW;
 	
-	UI.width = 1500;
+	UI.width = 1510;
 	UI.height = 650;
 	UI.wx = 5;
 	UI.wy =5;
 	UI.StatusBarHeight = 50;
 	UI.ToolBarHeight = 50;
-	UI.MenuItemWidth = 60;
+	UI.MenuItemWidth = 55.5;
 	
 	UI.DrawColor = BLUE;	//Drawing color
 	UI.FillColor = GREEN;	//Filling color
@@ -106,6 +106,8 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_SAVEGRAPH] = "images\\MenuItems\\Menu_Savegraph.jpg";
 	MenuItemImages[ITM_SAVETYPE] = "images\\MenuItems\\Menu_Savetype.jpg";
 	MenuItemImages[ITM_RESIZE] = "images\\MenuItems\\Menu_Resize.jpg";
+	MenuItemImages[ITM_PUSHFRONT] = "images\\MenuItems\\Menu_Pushfront.jpg";
+	MenuItemImages[ITM_PUSHBACK] = "images\\MenuItems\\Menu_Pushback.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Menu_Load.jpg";
 	MenuItemImages[ITM_PLAYMODE] = "images\\MenuItems\\Menu_Playmode.jpg";
 	MenuItemImages[ITM_UNMUTE] = "images\\MenuItems\\Menu_Unmute.jpg";
@@ -410,8 +412,33 @@ void Output::DrawLine(Point &P1, Point &P2, GfxInfo RectGfxInfo, bool selected) 
 	}
 }
 
-
 //////////////////////////////////////////////////////////////////////////////////////////
+
+void Output::CreateColorBar() const
+{
+	string MenuItemImage[5];
+	MenuItemImage[0] = "images\\MenuItems\\Menu_Black.jpg";
+	MenuItemImage[1] = "images\\MenuItems\\Menu_White.jpg";
+	MenuItemImage[2] = "images\\MenuItems\\Menu_Red.jpg";
+	MenuItemImage[3] = "images\\MenuItems\\Menu_Blue.jpg";
+	MenuItemImage[4] = "images\\MenuItems\\Menu_Green.jpg";
+
+
+	//Draw images for Colors
+
+	//Draw Color items one image at a time
+	for (int i = 0; i <= 4; i++)
+		pWind->DrawImage(MenuItemImage[i], i*UI.MenuItemWidth + UI.MenuItemWidth * 5, 50, UI.MenuItemWidth, UI.ToolBarHeight);
+	int x, y;
+	pWind->WaitMouseClick(x, y);
+	pWind->SetPen(UI.BkGrndColor, 1);
+	pWind->SetBrush(UI.BkGrndColor);
+	pWind->DrawRectangle(UI.MenuItemWidth * 5, UI.ToolBarHeight, 10 * UI.MenuItemWidth, 100);
+
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
+
 Output::~Output()
 {
 	delete pWind;
